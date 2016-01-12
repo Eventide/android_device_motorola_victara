@@ -37,9 +37,6 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 
-    # Symbols required for motorola blobs
-    export LD_SHIM_LIBS /system/lib/hw/camera.vendor.msm8974.so|libshim_camera.so:/system/lib/libjustshoot.so|libshim_camera.so:/system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so:/system/lib/liblog.so|libshim_log.so:/system/lib/libmdmcutback.so|libshim_mdmcutback.so:/system/bin/rild|libshim_ril.so:/system/lib/libril.so|libshim_ril.so:/system/lib/libsoundfx/libspeakerbundle.so|libshim_speakerbundle.so:/system/lib/libmot_sensorlistener.so|libshim_camera.so
-
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
@@ -695,7 +692,7 @@ on enable-low-power
     write /sys/module/cpu_boost/parameters/boost_ms 20
     write /sys/module/cpu_boost/parameters/sync_threshold 1728000
     write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
-    write /sys/module/cpu_boost/parameters/input_boost_ms 500
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
     # mpdecision
     setprop ro.qualcomm.perf.cores_online 2
